@@ -1,0 +1,58 @@
+.uadmin { padding: 2rem; }
+
+.flash-msg {
+  position: fixed; top: 1.5rem; right: 1.5rem; z-index: 999;
+  padding: 0.85rem 1.5rem; border-radius: 8px; font-size: 0.85rem;
+}
+.flash-msg.success { background: var(--forest); color: var(--cream); }
+.flash-msg.error   { background: #c0392b; color: #fff; }
+
+.uadmin-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 2rem; }
+.uadmin-title  { font-size: 2rem; font-weight: 800; color: var(--dark-forest); }
+.uadmin-count  { color: #888; font-size: 0.8rem; margin-top: 0.2rem; }
+
+.add-btn { background: var(--forest); color: var(--cream); border: none; border-radius: 8px; padding: 0.7rem 1.5rem; font-size: 1rem; cursor: pointer; transition: background 0.2s; }
+.add-btn:hover { background: var(--dark-forest); }
+
+.madmin-table-wrap { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); overflow: auto; }
+
+.MuiTableHead-root .MuiTableCell-root {
+  background: var(--dark-forest) !important; color: var(--gold) !important;
+  font-weight: 700 !important; font-size: 0.78rem !important;
+  letter-spacing: 1.5px !important; text-transform: uppercase !important; padding: 0.85rem 1rem !important;
+}
+.MuiTableBody-root .MuiTableRow-root:nth-of-type(even) .MuiTableCell-root { background: #faf7f2; }
+.MuiTableBody-root .MuiTableRow-root:hover .MuiTableCell-root { background: #f5ede2; }
+.MuiTableBody-root .MuiTableCell-root { padding: 0.85rem 1rem !important; border-bottom: 1px solid #f0ece3 !important; font-size: 0.92rem !important; color: var(--dark-forest) !important; }
+
+.item-name-cell { font-weight: 600; font-size: 0.88rem; }
+.desc-cell      { color: #888; font-size: 0.88rem; }
+
+.role-badge { font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 3px; }
+.role-badge.admin { background: var(--gold); color: var(--dark-forest); }
+.role-badge.staff { background: rgba(201,119,58,0.12); color: var(--forest); }
+
+.action-btns { display: flex; gap: 0.5rem; }
+
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 200; padding: 1rem; }
+.modal         { background: #fff; border-radius: 16px; width: 100%; max-width: 480px; box-shadow: 0 24px 60px rgba(0,0,0,0.3); }
+.modal-header  { display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 1.75rem; border-bottom: 1px solid #f0ece3; }
+.modal-header h2 { font-size: 1.4rem; font-weight: 800; color: var(--dark-forest); }
+.modal-close   { background: none; border: none; font-size: 1.2rem; color: #aaa; cursor: pointer; }
+.modal-close:hover { color: var(--dark-forest); }
+
+.modal-form { padding: 1.75rem; display: flex; flex-direction: column; gap: 1.1rem; }
+.fg         { display: flex; flex-direction: column; gap: 0.35rem; }
+.fg label   { font-size: 0.75rem; letter-spacing: 1.5px; color: var(--forest); text-transform: uppercase; font-weight: 600; }
+
+.MuiTextField-root { background-color: #faf7f2 !important; border-radius: 8px; }
+.MuiOutlinedInput-root fieldset        { border-color: var(--adm-border) !important; }
+.MuiOutlinedInput-root:hover fieldset  { border-color: var(--forest) !important; }
+.MuiOutlinedInput-root.Mui-focused fieldset { border-color: var(--forest) !important; }
+
+.modal-footer { display: flex; gap: 0.75rem; justify-content: flex-end; padding-top: 0.5rem; }
+.cancel-btn   { background: #f0ece3; color: #666; border: none; border-radius: 6px; padding: 0.7rem 1.5rem; cursor: pointer; }
+.cancel-btn:hover { background: #e0dbd0; }
+.save-btn     { background: var(--forest); color: var(--cream); border: none; border-radius: 6px; padding: 0.7rem 1.75rem; font-size: 1rem; font-weight: 700; cursor: pointer; }
+.save-btn:hover:not(:disabled) { background: var(--dark-forest); }
+.save-btn:disabled { opacity: 0.6; cursor: not-allowed; }

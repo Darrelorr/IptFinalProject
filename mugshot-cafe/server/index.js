@@ -11,9 +11,55 @@ const User = require("./model/user.model");
 
 const JWT_SECRET = "mugshot_cafe_secret_2024";
 
+const DEFAULT_MENU_ITEMS = [
+  { name: 'Long Black', description: 'Water + two shot espresso', hotPrice: 95, icedPrice: 105, category: 'Classic' },
+  { name: 'Latte', description: 'Two shot espresso + milk + thin layer foam', hotPrice: 120, icedPrice: 125, category: 'Classic' },
+  { name: 'Cappuccino', description: 'Two shot espresso + milk + Foamy milk', hotPrice: 115, icedPrice: 120, category: 'Classic' },
+  { name: "Togo's Cup", description: 'Sweet wild honey milk topped with espresso', icedPrice: 170, category: 'Antukin' },
+  { name: "YJ's Cup", description: "Reese's chocolate inspired coffee", icedPrice: 170, category: 'Antukin' },
+  { name: "Mason's Cup", description: 'Cinnamon explosion topped with espresso', icedPrice: 170, category: 'Antukin' },
+  { name: 'Mocha', description: 'Chocolate sauce + Double shot', hotPrice: 135, icedPrice: 150, category: 'Latte' },
+  { name: 'Salted Caramel', description: 'Salted caramel sauce + Double Shot', hotPrice: 135, icedPrice: 150, category: 'Latte' },
+  { name: 'White Chocolate', description: 'White Chocolate sauce + Double Shot', hotPrice: 135, icedPrice: 150, category: 'Latte' },
+  { name: 'Milk Chocolate', description: 'Mocha + Cocoa + Milk + Whipping', hotPrice: 100, icedPrice: 120, category: 'Milky' },
+  { name: 'Berry Milk', description: 'Strawberry Jam + Milk + pink sauce + whipping', icedPrice: 120, category: 'Milky' },
+  { name: 'Matcha', description: 'Ceremonial Matcha + Oat milk + condensed milk', hotPrice: 135, icedPrice: 145, category: 'Mixed' },
+  { name: 'Chai Tea', description: 'Authentic chai tea leaves + water + sugar', hotPrice: 90, icedPrice: 100, category: 'Mixed' },
+  { name: 'Butterfly Peaches', description: 'Butterfly Pea tea + Lemon soda + peach jam', price: 120, category: 'Tea' },
+  { name: 'Citron Hibiscus', description: 'Hibiscus tea + lemon soda + sweetener + citron jam', price: 120, category: 'Tea' },
+  { name: 'Soda Yakult', description: 'Green apple, Peach, Blueberry, Strawberry, Lychee', price: 120, category: 'Fizzy' },
+  { name: 'Espresso', price: 70, category: 'Xtra' },
+  { name: 'Syrup', price: 40, category: 'Xtra' },
+  { name: 'Chicken Ala-King', description: 'Chicken breast fillet drenched in a creamy ala king sauce', price: 175, category: 'Rice Meals' },
+  { name: 'Sweet Braised Pork', description: 'Sweet cubed cut pork topped with sesame seeds', price: 180, category: 'Rice Meals' },
+  { name: 'Spaghetti', description: 'Crossed FiLian combination of spaghetti', category: 'Pasta' },
+  { name: 'Pesto Pasta', description: 'Herby flavor garlicky kick and a creamy, cheesy finish', price: 165, category: 'Pasta' },
+  { name: 'Combo', description: 'Chinggers + Fries (real fries)', price: 150, category: 'Appetizers' },
+  { name: 'Fries Solo', description: 'Just fries', price: 90, category: 'Appetizers' },
+  { name: 'Waffles', description: 'Caramel, Chocolate, Blueberry, Strawberry, Cinnamon', price: 125, category: 'Waffles' },
+];
+
+async function seedMenuItems() {
+  try {
+    const count = await MenuItem.countDocuments();
+    if (count === 0) {
+      await MenuItem.insertMany(DEFAULT_MENU_ITEMS.map(item => ({
+        ...item,
+        photo: null,
+      })));
+      console.log('Default menu items seeded.');
+    }
+  } catch (err) {
+    console.error('Error seeding menu items:', err);
+  }
+}
+
 mongoose
   .connect("mongodb://localhost:27017/mugshotcafe")
-  .then(() => console.log("MongoDB connected to mugshotcafe"))
+  .then(async () => {
+    console.log("MongoDB connected to mugshotcafe");
+    await seedMenuItems();
+  })
   .catch((err) => console.error("MongoDB connection error:", err));
 
 const app = express();
@@ -72,6 +118,7 @@ app.post("/api/auth/login", async (req, res) => {
 // ── MENU ROUTES (public GET) ─────────────────────────────────────────────────
 app.get("/api/menu", async (req, res) => {
   try {
+    await seedMenuItems();
     const items = await MenuItem.find().sort({ category: 1, name: 1 });
     res.json(items);
   } catch (err) {

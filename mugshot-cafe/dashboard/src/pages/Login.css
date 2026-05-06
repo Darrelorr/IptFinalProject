@@ -1,0 +1,40 @@
+.login-page {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  background: radial-gradient(circle at top left, #fff5ea 0%, #f7d7b5 42%, #c4854c 100%);
+  padding: 2rem;
+}
+.login-card {
+  background: #f5f0e8; border-radius: 16px;
+  padding: 2.5rem 2rem; width: 100%; max-width: 400px;
+  box-shadow: 0 20px 60px rgba(79,43,19,0.18); text-align: center;
+}
+.login-logo {
+  display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+  padding: 1.25rem; border-radius: 14px;
+  background: #fff; border: 2px solid #c9a84c; margin-bottom: 1.75rem;
+}
+.login-logo-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #c9a84c; }
+.login-brand { font-size: 1.4rem; font-weight: 700; color: #3f2a18; }
+.login-sub   { font-size: 0.78rem; color: #a0876a; letter-spacing: 3px; text-transform: uppercase; }
+
+.login-form  { display: flex; flex-direction: column; gap: 1rem; text-align: left; }
+.form-group  { display: flex; flex-direction: column; gap: 0.3rem; }
+.form-group label { font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #7b5a3a; }
+.form-group input {
+  padding: 0.7rem 0.9rem; border-radius: 6px;
+  border: 1.5px solid #d4bfa0; background: #fff;
+  font-size: 0.95rem; color: #3f2a18; transition: border-color 0.2s;
+}
+.form-group input:focus { outline: none; border-color: #c9773a; }
+.login-error { background: #fde8d8; color: #a0522d; padding: 0.6rem 0.9rem; border-radius: 6px; font-size: 0.85rem; }
+.login-btn {
+  background: #c9773a; color: #fff; border: none;
+  padding: 0.85rem; border-radius: 8px;
+  font-size: 1rem; font-weight: 700; cursor: pointer;
+  margin-top: 0.5rem; transition: background 0.2s;
+}
+.login-btn:hover:not(:disabled) { background: #a05a28; }
+.login-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.back-link { display: inline-block; margin-top: 1.5rem; color: #c9773a; font-size: 0.85rem; text-decoration: none; }
+.back-link:hover { color: #a05a28; }
