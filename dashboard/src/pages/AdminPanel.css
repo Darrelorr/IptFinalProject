@@ -1,0 +1,51 @@
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f5f0eb;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+}
+
+.sidebar-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+}
+
+.sidebar-user-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.logout-icon {
+  color: rgba(251, 242, 232, 0.5);
+  cursor: pointer;
+  font-size: 18px !important;
+  transition: color 0.2s;
+}
+
+.logout-icon:hover {
+  color: #fff;
+}
+
+.admin-main {
+  flex: 1;
+  padding: 24px;
+  min-width: 0;
+}
+
+.sidebar-logo {
+  width: 35px;
+  height: 35px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 2px solid rgba(201, 168, 76, 0.4);
+}
