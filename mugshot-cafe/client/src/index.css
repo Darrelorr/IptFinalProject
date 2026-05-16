@@ -1,0 +1,29 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --forest: #2d5a3d;
+  --dark-forest: #1a3828;
+  --cream: #f5f0e8;
+  --warm-cream: #ede4d0;
+  --gold: #c9a84c;
+  --rust: #b85c38;
+  --muted-pink: #d4a0a0;
+  --charcoal: #2a2a2a;
+  --off-white: #faf7f2;
+  --font-display: 'Bebas Neue', cursive;
+  --font-editorial: 'Playfair Display', serif;
+  --font-typewriter: 'Special Elite', cursive;
+  --font-body: 'Crimson Pro', serif;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--off-white); color: var(--charcoal); font-family: var(--font-body); font-size: 18px; line-height: 1.6; overflow-x: hidden; }
+
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; }
+img { max-width: 100%; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--forest); border-radius: 3px; }
